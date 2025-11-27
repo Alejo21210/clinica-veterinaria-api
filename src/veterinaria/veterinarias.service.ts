@@ -37,4 +37,25 @@ export class VeterinariaService {
     if (!veterinaria) return null;
     return this.veterinariaRepository.remove(veterinaria);
   }
+
+  clasificarDosis(dosis: number[]) {
+    let dosisTotal = 0;
+    let mensaje ="";
+
+    for (const mg of dosis){
+      dosisTotal += mg;
+    }
+    if (dosisTotal < 100) {
+      mensaje = "Tratamiento de baja intensidad";
+    } else if (dosisTotal <=300) {
+      mensaje= "Tratamiento moderado";
+    } else {
+      mensaje="Tratamiento disponible"
+    }
+
+    return {
+      dosisTotal:dosisTotal,
+      mensaje: mensaje
+    }
+  }
 }

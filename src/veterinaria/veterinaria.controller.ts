@@ -31,4 +31,9 @@ export class VeterinariasController {
   remove(@Param('id') id: string) {
     return this.veterinariasService.remove(id);
   }
+
+  @Post('clasificar-dosis')
+  clasificarDosis(@Body() body: {dosis:number[]}){
+    return this.veterinariasService.clasificarDosis(body.dosis)
+  }
 }
