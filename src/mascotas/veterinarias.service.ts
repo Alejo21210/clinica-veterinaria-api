@@ -50,7 +50,7 @@ export class VeterinariaService {
     } else if (dosisTotal <=300) {
       mensaje= "Tratamiento moderado";
     } else {
-      mensaje="Tratamiento disponible"
+      mensaje="Tratamiento disponible";
     }
 
     return {
@@ -58,4 +58,19 @@ export class VeterinariaService {
       mensaje: mensaje
     }
   }
+
+  evaluarPeso(pesoActual:number, pesoIdeal: number){
+    const diferencia = pesoActual - pesoIdeal;
+    let mensaje="";
+    if (diferencia > 0) {
+      mensaje="La mascota esta por encima del peso Ideal";
+    }else if (diferencia < 0) {
+      mensaje="La mascota esta por debajo del peso ideal";
+    } else (diferencia === 0) 
+      mensaje="Peso ideal alcanzado";
+    return {
+      diferencia:diferencia,
+      mensaje:mensaje
+    }
+  } 
 }

@@ -36,4 +36,9 @@ export class VeterinariasController {
   clasificarDosis(@Body() body: {dosis:number[]}){
     return this.veterinariasService.clasificarDosis(body.dosis)
   }
+
+  @Post('evaluar-peso')
+  evaluarPeso(@Body() body: any){
+    return this.veterinariasService.evaluarPeso(body.pesoActual, body.pesoIdeal)
+  }
 }
